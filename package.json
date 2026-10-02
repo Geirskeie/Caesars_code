@@ -1,0 +1,22 @@
+{
+  "name": "caesars_code",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.ts",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "engines": {
+    "node": ">=22.18"
+  },
+  "keywords": [],
+  "author": "GeirSkeie",
+  "license": "ISC",
+  "description": "Program for Caesar's Code decryption and encryption",
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "typescript": "^7.0.2",
+    "vitest": "^4.1.11"
+  }
+}
