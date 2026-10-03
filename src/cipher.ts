@@ -1,7 +1,7 @@
 // Including space as the 30th character at the end.
 // Outside of the function, so that it is not redefined every time the function is called.
 const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ" + " ";
-const lowerAlphabet = alphabet.toLowerCase();
+export const lowerAlphabet = alphabet.toLowerCase();
 
 function cipher(text: string, shift: number): string {
   const shiftedText = text.split("").map((char) => {

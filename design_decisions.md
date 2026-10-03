@@ -1,24 +1,24 @@
 ### Valg av språk/rammeverk
 
 Min løsning: Ren TypeScript
-Hvorfor: Det jeg er mest kjent med, enkelt å implementere, gjør koden tydeligere med typesjekking, enkel testing, og kan gjenbrukes i en webapplikasjon uten store endringer.
+Hvorfor: Det jeg er mest kjent med, enkelt å implementere, gjør koden tydeligere med typechecking, enkel testing, og kan gjenbrukes i en webapplikasjon uten store endringer.
 Alternativ: TypeScript med Next.js, C#, Python
 Hvorfor ikke:
 Next.js: Ville vært overkill for en så liten applikasjon, for mye rutinglogikk osv.
-Python: Godt alternativ, ville sannsynligvis vært mitt andrevalg for denne oppgaven. Python hadde vært litt enklere for en ren terminalapp, med mindre oppsett. Jeg valgte likevel TypeScript fordi det er der jeg skriver best kode, og ekstrakostnaden var bare noen minutter med oppsett.
+Python: Godt alternativ, ville sannsynligvis vært mitt andrevalg for denne oppgaven (1B). Python hadde vært litt enklere for en ren terminalapp, med mindre oppsett. Jeg valgte likevel TypeScript fordi det er der jeg skriver best kode, og ekstrakostnaden var bare noen minutter med oppsett.
 C#: Mer oppsett enn nødvendig for en liten applikasjon. Bedre egnet for en større backendapplikasjon.
 
 ### Alfabet
 
-Min løsning: 29 bokstaver (30 med spcace)
+Min løsning: 29 bokstaver (30 med space)
 Hvorfor: Oppgaveeksempelet er på norsk
 Alternativ: Bare bruke 26 bokstaver (det engelske alfabetet)
-Hvorfor ikke: En versjon med 26 bokstaver ville vært enklere, men de tre siste bokstavene (ÆØÅ) ville enten gått gjennom ukryptert eller ødelagt systemet helt (ikke ideelt).
+Hvorfor ikke: En versjon med 26 bokstaver ville vært enklere, men de tre siste bokstavene (ÆØÅ) ville enten gått gjennom ukryptert eller ødelagt systemet helt (ikke ideelt...).
 
 ### Wrapping
 
 Hver bokstavs posisjon forskyves med x og pakkes rundt med modulo, slik at alfabetet "starter på nytt" når det når slutten.
-Eksempel: x=1, Å=A
+Eksempel: x=2, Å=A (pga mellomrom er etter Å)
 
 ### Space
 
@@ -43,9 +43,25 @@ Hvorfor: Samsvarer med både oppgaveeksempelet og eksempelet med Cæsars kode
 Alternativ: Konvertere til store eller små bokstaver
 Hvorfor ikke: Informasjon ville fort gått tapt. Egennavn, setningsstart og forkortelser (f.eks. "Bergen" eller "NAV") blir små bokstaver, så å kryptere og dekryptere gir ikke tilbake den opprinnelige teksten.
 
-# Testing
+### Testing
 
 Min løsning: Valgte å bruke Vitest
-Hvorfor: Kan syntaxen fra før av via Jest, og gir bedre utskrifter enn Node sin innebygde test runner
-Alternativ: Jest og Node sin innebygde test runner
-Hvorfor ikke: Jest er litt eldre, mens Vitest er mer moderne og raskere. Node sin innebygde test runner er litt dårligere feilmeldinger og har en annerledes syntax enn jeg er vant til fra jest. Node har fordelen med at den ikke har noen avhengigheter,
+Hvorfor: Kan syntaxen fra før av via Jest, og gir bedre feilmeldinger enn Node sin innebygde test runner
+Alternativ: Jest eller Node sin innebygde test runner
+Hvorfor ikke: Jest er litt eldre, mens Vitest er mer moderne og raskere. Node sin innebygde test runner gir litt dårligere feilmeldinger og har en annerledes syntax enn jeg er vant til fra jest. Node har fordelen med at den ikke har noen avhengigheter.
+
+### Konsollkjøring eller lage enkel frontend
+
+Min løsning: Begge deler. Konsollappen beholdes, og i tillegg en enkel frontend med Vite og ren TypeScript (uten rammeverk).
+Hvorfor: Frontenden er bare ett skjema (tekst, nøkkel, krypter/dekrypter), så et rammeverk ville gitt mer oppsett enn selve appen. Vite er ikke et rammeverk, men en utviklingsserver/bundler som kjører TypeScript i nettleseren uten konfigurasjon. Vitest bygger allerede på Vite, så det kommer ingen ny verktøykjede inn. cipher.ts brukes uendret av både konsollappen og frontenden.
+Alternativ: React (med Vite), Next.js, eller bare konsoll
+Hvorfor ikke:
+React: Komponenter og state-håndtering gir lite verdi for ett skjema. Ville vært riktig valg hvis appen skulle vokse med flere visninger, historikk osv.
+Next.js: Samme grunn som over, overkill med ruting og serverlogikk appen ikke trenger.
+Bare konsoll: Fungerer, men en frontend gjør det enklere å teste og demonstrere løsningen, og viser at logikken kan gjenbrukes slik jeg skrev under valg av språk.
+Sidegevinst: Resultatet skrives med textContent i stedet for innerHTML, så brukerinput blir aldri tolket som HTML.
+
+### Fremtidig/Valg gjort
+
+Stor bokstav som sendes inn som blir konvertert til mellomrom vil bli liten bokstav om konvertert tilbake. - skrive mer her
+Ikke funnet en god måte å løse dette på.

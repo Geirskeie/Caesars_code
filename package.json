@@ -4,6 +4,8 @@
   "type": "module",
   "scripts": {
     "start": "node src/index.ts",
+    "dev": "vite",
+    "build": "vite build",
     "test": "vitest run",
     "typecheck": "tsc --noEmit"
   },
@@ -17,6 +19,7 @@
   "devDependencies": {
     "@types/node": "^26.6.4",
     "typescript": "^7.0.2",
+    "vite": "^8.3.2",
     "vitest": "^4.1.11"
   }
 }
